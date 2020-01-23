@@ -1,24 +1,11 @@
 pipeline
 {
-    agent // Define the agent to use
+    agent
     {
         docker
         {
-            label 'RT-Z0KHU'
-            image 'rb-dtr.de.bosch.com/software-campus/kiso-toolchain:v0.4.3'
-            registryUrl 'https://rb-dtr.de.bosch.com'
-            registryCredentialsId 'docker-registry'
+            image 'eclipse/kiso-build-env:v0.0.1'
         }
-    }
-    options
-    {
-        timeout(time: 60, unit: 'MINUTES') // Define a timeout of 60 minutes
-                timestamps() // Use a timestamp notation
-                disableConcurrentBuilds() // We don't want to have concurrent build issues here
-    }
-    triggers // Define how many times the job will be triggered
-    {
-        pollSCM('*/5 * * * *') //  If new changes exist, the Pipeline will be re-triggered automatically. Check will be done every 5 minutes
     }
 
     stages
