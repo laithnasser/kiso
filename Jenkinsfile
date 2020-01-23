@@ -2,10 +2,18 @@ pipeline
 {
     agent
     {
-        docker
-        {
-            image 'eclipse/kiso-build-env:v0.0.1'
-        }
+        kubernetes
+		{
+            label 'my-agent-pod'
+            yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: kiso-build-env
+    image: eclipse/kiso-build-env:v0.0.1
+"""
+		}
     }
 
     stages
