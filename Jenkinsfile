@@ -4,7 +4,7 @@ pipeline
     {
         kubernetes
 		{
-            label 'kiso-dev-env-pod'
+            label 'my-agent-pod'
             yaml """
 apiVersion: v1
 kind: Pod
