@@ -4,7 +4,7 @@ pipeline
     {
         kubernetes
 		{
-            label 'my-agent-pod'
+            label 'kiso-dev-env-pod'
             yaml """
 apiVersion: v1
 kind: Pod
@@ -165,7 +165,7 @@ spec:
 def notifyFailed()
 {
     emailext (subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is failing",
-                body: "Please go to ${env.BUILD_URL}, check it out AND fix it...",
+                body: "Oups, something went wrong with ${env.BUILD_URL}... We are looking forward for your fix!",
                 recipientProviders: [[$class: 'CulpritsRecipientProvider'],
                                     [$class: 'DevelopersRecipientProvider'],
                                     [$class: 'RequesterRecipientProvider']])
@@ -174,7 +174,7 @@ def notifyFailed()
 def notifyAbort()
 {
     emailext (subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) was aborted",
-                body: "Please go to ${env.BUILD_URL}, check what happened.",
+                body: "Oups, something went wrong with ${env.BUILD_URL}... We are looking forward for your fix!",
                 recipientProviders: [[$class: 'CulpritsRecipientProvider'],
                                     [$class: 'DevelopersRecipientProvider'],
                                     [$class: 'RequesterRecipientProvider']])
