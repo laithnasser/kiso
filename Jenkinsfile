@@ -3,16 +3,14 @@ pipeline
     agent
     {
         kubernetes
-		{
-            yaml """
-apiVersion: v1
-kind: Pod
-spec:
-  containers:
-  - name: kiso-build-env
-    image: eclipse/kiso-build-env:v0.0.1
-"""
-		}
+        {
+            containerTemplate
+            {
+                name 'kiso-build-env'
+                image 'eclipse/kiso-build-env:v0.0.1'
+                ttyEnabled true
+            }
+        }
     }
 
     stages
