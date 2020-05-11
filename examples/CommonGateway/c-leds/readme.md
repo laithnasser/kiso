@@ -13,8 +13,7 @@ The example will flash the blue LED. It will also show how to enable the logging
 Please refer to the getting started [quick start](http://kiso.rempler.de:1313/user-guide/quick_start.html) guide for Eclipse Kiso. 
 
 #### Hardware Components
-You will need CommonGateway board. The board needs the J-Link debugger firmware flashed, to be easily flashed using Kiso's build target.
-If you consider using your own debugger, or connect an external J-Link debugger, please refer to the vendors reference manual.
+You will need CommonGateway board.You need an external debugger to flash.If you want to connect the external debugger, please refer to the vendors reference manual.
 
 
 ##  Initial Setup
@@ -27,7 +26,7 @@ cmake . -Bbuild -DKISO_BOARD_NAME=CommonGateway
 cmake --build build
 ```
 Now as you have built the project you should have an application binary ready to flash.
-For you own convenience you can use the cmake build system also to flash the binary with a J-Link debugger (either on-board or externally).
+For you own convenience you can use the cmake build system also to flash the binary with the external debugger.
 ```
 cmake --build build --target flash
 ```
