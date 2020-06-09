@@ -14,7 +14,7 @@ Please refer to the getting started [quick start](http://kiso.rempler.de:1313/us
 #### Hardware Components
 You will need CommonGateway Board. 
 ## Initial Setup
-Configure the project to be compiled for the CommonGateway Board which is located in boards/CommonGateway .
+Configure the project to be compiled for the CommonGateway Board which is located in [boards/CommonGateway](https://github.com/eclipse/kiso/tree/master/boards/CommonGateway) .
 
 ## Execution Flow
 ```
