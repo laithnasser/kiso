@@ -1,10 +1,10 @@
 # Example Project: C-sensor for CommonGateway Development Kit
 
 ## Goal:
-this example is for running the c-sensor in CommonGateway.
+This example is for running the c-sensor in CommonGateway.
 
 ## Brief:
-this example will show the enviromental measurements and dimenstions.
+This example will show the enviromental measurements and dimensions.
 
 ### Components Required:
 
@@ -13,23 +13,23 @@ Please refer to the getting started [quick start](http://kiso.rempler.de:1313/us
 
 #### Hardware Components
 You will need CommonGateway Board. 
-## (*Optional*) Initial Setup
-Configure the project to be compiled for theCommonGateway Board which is located in boards/CommonGateway
+## Initial Setup
+Configure the project to be compiled for the CommonGateway Board which is located in boards/CommonGateway .
 
-## (*Optional*) Execution Flow
+## Execution Flow
 ```
 cd kiso
 cmake . -Bbuild -DKISO_BOARD_NAME=CommonGateway -DKISO_APPLICATION_NAME=c-sensors -DKISO_APPLICATION_PATH=examples/CommonGateway/c-sensors 
 cmake --build build
 ```
-Now as you have built the project you should have an application binary ready to flash.
-For you own convenience you can use the cmake build system also to flash the binary with a J-Link debugger (either on-board or externally).
+Now as you have built the project you should have an application binary ready to run.
+For you own convenience you can use the cmake build system also to flash the binary with the external debugger.
 ```
 cmake --build build --target flash
 ```
 
-## (*Optional*)Code Walkthrough
-The essence of this example can be seen in theappPeriodicTest function, which is taking the data from  SensorEnvironment_Read and make some calculations to give the output understandable and take the data from the SensorAccelerometer_Read and show dimensions and if everything goes correct and green led will flash, otherwise the red led will flash .
+## Code Walkthrough
+The essence of this example can be seen in the appPeriodicTest function, which is taking the data from  SensorEnvironment_Read and make some calculations to give the output understandable and take the data from the SensorAccelerometer_Read and show dimensions and if everything goes correct, the green led will flash. Otherwise the red led will flash .
 
 ```c
 void appPeriodicTest(void *CmdProcessorHandle, uint32_t param2)
@@ -117,8 +117,8 @@ void appPeriodicTest(void *CmdProcessorHandle, uint32_t param2)
 }
 ```
 This code through in two main functions to get the output.
-the first one is for the Enviroment Sensor, which go through two functions called SensorEnvironment_Init and SensorEnvironment_Read as you can see [here](https://github.com/eclipse/kiso/blob/master/examples/CommonGateway/c-sensors/source/env_sensor.c) that these two functions give the measurements continuously for the (temperature, pressure and humidity).
-the second one is for Accelerometer Sensor, which go through two functions called SensorAccelerometer_Init and SensorAccelerometer_Read as you can see [here](https://github.com/eclipse/kiso/blob/master/examples/CommonGateway/c-sensors/source/accel_sensor.c)that these two functions give the dimantions (x,y,z).
+The first one is for the Enviroment Sensor, which go through two functions called [SensorEnvironment_Init](https://github.com/eclipse/kiso/blob/master/examples/CommonGateway/c-sensors/source/env_sensor.c#L58) and [SensorEnvironment_Read](https://github.com/eclipse/kiso/blob/master/examples/CommonGateway/c-sensors/source/env_sensor.c#L110) as you can see that these two functions give the measurements continuously for the (temperature, pressure and humidity).
+The second one is for Accelerometer Sensor, which go through two functions called [SensorAccelerometer_Init](https://github.com/eclipse/kiso/blob/master/examples/CommonGateway/c-sensors/source/accel_sensor.c#L48) and [SensorAccelerometer_Read](https://github.com/eclipse/kiso/blob/master/examples/CommonGateway/c-sensors/source/accel_sensor.c#L76) as you can see that these two functions give the dimensions (x,y,z).
 
 ## Expected Output
 
